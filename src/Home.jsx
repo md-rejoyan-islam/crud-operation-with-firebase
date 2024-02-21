@@ -142,67 +142,69 @@ function Home() {
   return (
     <>
       <div>
-        <div className="my-16 lg:w-[1000px] px-6 mx-auto">
+        <div className="my-16 lg:w-[1000px] sm:px-6 px-3 mx-auto overflow-hidden">
           <button
             className="py-2 px-3 rounded-md bg-blue-500 text-white mb-2"
             onClick={() => setOpenModal(true)}
           >
             Add Devs
           </button>
-          <div className="card shadow-md border p-4 rounded-md">
+          <div className="card shadow-md border p-4 rounded-md ">
             <h1 className="text-3xl font-bold text-center py-4">Devs data</h1>
-            <table className="w-full">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Age</th>
-                  <th>Photo</th>
-                  <th>CreateAt</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((dev, index) => (
-                  <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td>{dev?.name}</td>
-                    <td>{dev?.age}</td>
-                    <td>
-                      <img
-                        src={dev?.photo}
-                        className="w-10 h-10 object-cover  mx-auto"
-                        alt=""
-                      />
-                    </td>
-
-                    <td>
-                      {dev?.createAt?.seconds &&
-                        timeAgo(dev?.createAt?.seconds)}
-                    </td>
-                    <td>
-                      <div className="flex gap-2 items-center  justify-center">
-                        <button
-                          className="text-[12px] py-1 px-2 rounded-md bg-green-400 text-white "
-                          onClick={() => {
-                            setEditData(dev);
-                            setOpenUpdateModal(true);
-                          }}
-                        >
-                          edit
-                        </button>
-                        <button
-                          className="text-[12px] py-1 px-2 rounded-md bg-red-400 text-white "
-                          onClick={() => handleDelete(dev.id)}
-                        >
-                          delete
-                        </button>
-                      </div>
-                    </td>
+            <div className="overflow-scroll">
+              <table className="w-full table-auto ">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Photo</th>
+                    <th>CreateAt</th>
+                    <th>Action</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {data.map((dev, index) => (
+                    <tr key={index}>
+                      <td>{index + 1}</td>
+                      <td>{dev?.name}</td>
+                      <td>{dev?.age}</td>
+                      <td>
+                        <img
+                          src={dev?.photo}
+                          className="w-8 h-8 object-cover  mx-auto"
+                          alt=""
+                        />
+                      </td>
+
+                      <td>
+                        {dev?.createAt?.seconds &&
+                          timeAgo(dev?.createAt?.seconds)}
+                      </td>
+                      <td>
+                        <div className="flex gap-2 items-center  justify-center">
+                          <button
+                            className="text-[12px] py-1 px-2 rounded-md bg-green-400 text-white "
+                            onClick={() => {
+                              setEditData(dev);
+                              setOpenUpdateModal(true);
+                            }}
+                          >
+                            edit
+                          </button>
+                          <button
+                            className="text-[12px] py-1 px-2 rounded-md bg-red-400 text-white "
+                            onClick={() => handleDelete(dev.id)}
+                          >
+                            delete
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

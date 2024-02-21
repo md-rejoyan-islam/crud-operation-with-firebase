@@ -23,7 +23,14 @@ export default function Header() {
           <Dropdown
             arrowIcon={false}
             inline
-            label={<Avatar alt="User settings" img={user?.photoURL} rounded />}
+            label={
+              <Avatar
+                className="border border-gray-400 rounded-full"
+                alt="User settings"
+                img={user?.photoURL}
+                rounded
+              />
+            }
           >
             <Dropdown.Header>
               <span className="block text-sm">{user?.displayName}</span>
@@ -35,7 +42,7 @@ export default function Header() {
             <Dropdown.Item onClick={handleLogout}>Sign out</Dropdown.Item>
           </Dropdown>
         )}
-        <Navbar.Toggle />
+        {/* <Navbar.Toggle /> */}
       </div>
       {/* <Navbar.Collapse>
         <NavLink to={"/"} className="py-2 px-3 rounded-sm">
