@@ -1,5 +1,5 @@
 export const timeAgo = (sec) => {
-  const date = new Date(sec);
+  const date = new Date(sec * 1000);
   const secondsElapsed = Math.floor((Date.now() - date) / 1000);
 
   const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
